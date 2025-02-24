@@ -106,7 +106,7 @@ export const AdminDashboard = () => {
     // Filter by search term
     if (searchTerm) {
       const searchLower = searchTerm.toLowerCase();
-      filtered = filtered.filter(booking => 
+      filtered = filtered.filter(booking =>
         booking.hotel_name.toLowerCase().includes(searchLower) ||
         booking.confirmation_code.toLowerCase().includes(searchLower) ||
         booking.user?.email.toLowerCase().includes(searchLower)
@@ -192,7 +192,7 @@ export const AdminDashboard = () => {
   const fetchDashboardData = async () => {
     try {
       setIsRefreshing(true);
-      
+
       // Fetch total users
       const { count: userCount } = await supabase
         .from('company_profiles')
@@ -306,44 +306,40 @@ export const AdminDashboard = () => {
         <div className="flex space-x-4 mb-8">
           <button
             onClick={() => setActiveView('overview')}
-            className={`flex items-center space-x-2 px-4 py-2 rounded-lg ${
-              activeView === 'overview'
-                ? 'bg-blue-600 text-white'
-                : 'bg-white text-gray-600 hover:bg-gray-50'
-            }`}
+            className={`flex items-center space-x-2 px-4 py-2 rounded-lg ${activeView === 'overview'
+              ? 'bg-blue-600 text-white'
+              : 'bg-white text-gray-600 hover:bg-gray-50'
+              }`}
           >
             <BarChart3 className="w-5 h-5" />
             <span>Vista General</span>
           </button>
           <button
             onClick={() => setActiveView('users')}
-            className={`flex items-center space-x-2 px-4 py-2 rounded-lg ${
-              activeView === 'users'
-                ? 'bg-blue-600 text-white'
-                : 'bg-white text-gray-600 hover:bg-gray-50'
-            }`}
+            className={`flex items-center space-x-2 px-4 py-2 rounded-lg ${activeView === 'users'
+              ? 'bg-blue-600 text-white'
+              : 'bg-white text-gray-600 hover:bg-gray-50'
+              }`}
           >
             <Users className="w-5 h-5" />
             <span>Usuarios</span>
           </button>
           <button
             onClick={() => setActiveView('bookings')}
-            className={`flex items-center space-x-2 px-4 py-2 rounded-lg ${
-              activeView === 'bookings'
-                ? 'bg-blue-600 text-white'
-                : 'bg-white text-gray-600 hover:bg-gray-50'
-            }`}
+            className={`flex items-center space-x-2 px-4 py-2 rounded-lg ${activeView === 'bookings'
+              ? 'bg-blue-600 text-white'
+              : 'bg-white text-gray-600 hover:bg-gray-50'
+              }`}
           >
             <Hotel className="w-5 h-5" />
             <span>Reservaciones</span>
           </button>
           <button
             onClick={() => setActiveView('payments')}
-            className={`flex items-center space-x-2 px-4 py-2 rounded-lg ${
-              activeView === 'payments'
-                ? 'bg-blue-600 text-white'
-                : 'bg-white text-gray-600 hover:bg-gray-50'
-            }`}
+            className={`flex items-center space-x-2 px-4 py-2 rounded-lg ${activeView === 'payments'
+              ? 'bg-blue-600 text-white'
+              : 'bg-white text-gray-600 hover:bg-gray-50'
+              }`}
           >
             <CreditCard className="w-5 h-5" />
             <span>Pagos</span>
@@ -472,13 +468,12 @@ export const AdminDashboard = () => {
                           </p>
                         </div>
                         <div className="flex items-center space-x-2">
-                          <span className={`inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-medium ${
-                            booking.status === 'completed'
-                              ? 'bg-green-100 text-green-800'
-                              : booking.status === 'pending'
+                          <span className={`inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-medium ${booking.status === 'completed'
+                            ? 'bg-green-100 text-green-800'
+                            : booking.status === 'pending'
                               ? 'bg-yellow-100 text-yellow-800'
                               : 'bg-red-100 text-red-800'
-                          }`}>
+                            }`}>
                             {booking.status === 'completed' ? (
                               <CheckCircle className="w-4 h-4 mr-1" />
                             ) : booking.status === 'pending' ? (
@@ -517,13 +512,12 @@ export const AdminDashboard = () => {
                         </p>
                       </div>
                       <div className="flex items-center space-x-4">
-                        <span className={`inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-medium ${
-                          payment.status === 'completed'
-                            ? 'bg-green-100 text-green-800'
-                            : payment.status === 'pending'
+                        <span className={`inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-medium ${payment.status === 'completed'
+                          ? 'bg-green-100 text-green-800'
+                          : payment.status === 'pending'
                             ? 'bg-yellow-100 text-yellow-800'
                             : 'bg-red-100 text-red-800'
-                        }`}>
+                          }`}>
                           {payment.status}
                         </span>
                         <span className="font-medium text-gray-900">
@@ -652,7 +646,7 @@ export const AdminDashboard = () => {
                           <div className="flex items-center space-x-2">
                             <Calendar className="w-4 h-4 text-gray-400" />
                             <span>
-                              {new Date(booking.check_in).toLocaleDateString()} - 
+                              {new Date(booking.check_in).toLocaleDateString()} -
                               {new Date(booking.check_out).toLocaleDateString()}
                             </span>
                           </div>
@@ -666,13 +660,12 @@ export const AdminDashboard = () => {
                           </div>
                         </td>
                         <td className="py-4">
-                          <span className={`inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-medium ${
-                            booking.status === 'completed'
-                              ? 'bg-green-100 text-green-800'
-                              : booking.status === 'pending'
+                          <span className={`inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-medium ${booking.status === 'completed'
+                            ? 'bg-green-100 text-green-800'
+                            : booking.status === 'pending'
                               ? 'bg-yellow-100 text-yellow-800'
                               : 'bg-red-100 text-red-800'
-                          }`}>
+                            }`}>
                             {booking.status === 'completed' ? (
                               <CheckCircle className="w-4 h-4 mr-1" />
                             ) : booking.status === 'pending' ? (
@@ -716,4 +709,14 @@ export const AdminDashboard = () => {
                     <input
                       type="text"
                       placeholder="Buscar pagos..."
-                      value={searchTerm}
+                      value={searchTerm} />
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        )}
+      </div>
+    </div>
+  )
+}
